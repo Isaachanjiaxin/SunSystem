@@ -69,16 +69,7 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 
-# 黄道面：由太阳—地球初始轨道状态确定，只用于显示
-ax.plot_surface(
-    ecliptic[0],
-    ecliptic[1],
-    ecliptic[2],
-    color='#fff9c4',
-    alpha=0.2,
-    linewidth=0,
-    shade=False,
-)
+
 
 # 当前点
 scatter = ax.scatter(
