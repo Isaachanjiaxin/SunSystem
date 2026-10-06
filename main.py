@@ -46,16 +46,7 @@ earth_vel = df.loc[df['星球名'] == '地球', '速度'].iloc[0]
 earth_orbit_normal = np.cross(earth_pos - sun_pos, earth_vel - sun_vel)
 earth_orbit_normal /= np.linalg.norm(earth_orbit_normal)
 
-plane_u = earth_pos - sun_pos
-plane_u /= np.linalg.norm(plane_u)
-plane_v = np.cross(earth_orbit_normal, plane_u)
-plane_extent = np.linspace(-BOUND, BOUND, 30)
-plane_x, plane_y = np.meshgrid(plane_extent, plane_extent)
-ecliptic = (
-    sun_pos[:, None, None]
-    + plane_u[:, None, None] * plane_x
-    + plane_v[:, None, None] * plane_y
-)
+
 n = len(system.stars)
 positions = system.plot_pos          # (3, n)
 sizes = system.radius.flatten()      # (n,)
